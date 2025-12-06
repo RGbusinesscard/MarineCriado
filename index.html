@@ -18,7 +18,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: radial-gradient(circle at top, #d7e4f5 0%, #8ea6c9 45%, #2a3548 100%);
+      background: radial-gradient(circle at top, #e4ebf7 0%, #b5c3dc 45%, #3a4357 100%);
       color: #f5f9ff;
     }
 
@@ -31,32 +31,65 @@
       max-width: 92vw;
       border-radius: 28px;
       padding: 32px 20px;
-      background: linear-gradient(155deg, #1f2a3a 0%, #111927 50%, #0d141d 100%);
-      border: 1.5px solid rgba(180, 200, 255, 0.35);
-
+      background: linear-gradient(155deg, #202838 0%, #151b28 50%, #101621 100%);
+      border: 1px solid rgba(195, 210, 240, 0.7);
       box-shadow:
-        0 0 14px rgba(200, 220, 255, 0.30),
-        0 0 30px rgba(150, 180, 255, 0.20),
-        0 25px 55px rgba(0, 0, 0, 0.8);
+        0 25px 55px rgba(0, 0, 0, 0.85);
 
       position: relative;
       display: flex;
       flex-direction: column;
       gap: 22px;
       overflow: hidden;
+      z-index: 0;
     }
 
-    /* Halo bleu clair chic */
+    /* Halo fixe clair */
     .card::before {
       content: "";
       position: absolute;
       inset: 0;
       border-radius: 28px;
-      border: 1px solid rgba(200, 220, 255, 0.45);
-      box-shadow:
-        0 0 12px rgba(220, 235, 255, 0.5),
-        0 0 40px rgba(180, 210, 255, 0.35);
+      border: 1px solid rgba(230, 235, 245, 0.72);
       pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Halo animé blanc/gris très léger */
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: -3px;
+      border-radius: 32px;
+      border: 1px solid rgba(235, 240, 250, 0.9);
+      box-shadow:
+        0 0 18px rgba(235, 240, 250, 0.45),
+        0 0 32px rgba(210, 220, 240, 0.4);
+      opacity: 0.35;
+      pointer-events: none;
+      z-index: -2;
+      animation: haloPulse 4s ease-in-out infinite;
+    }
+
+    @keyframes haloPulse {
+      0% {
+        opacity: 0.25;
+        box-shadow:
+          0 0 16px rgba(235, 240, 250, 0.35),
+          0 0 26px rgba(210, 220, 240, 0.3);
+      }
+      50% {
+        opacity: 0.7;
+        box-shadow:
+          0 0 26px rgba(235, 240, 250, 0.6),
+          0 0 40px rgba(210, 220, 240, 0.55);
+      }
+      100% {
+        opacity: 0.25;
+        box-shadow:
+          0 0 16px rgba(235, 240, 250, 0.35),
+          0 0 26px rgba(210, 220, 240, 0.3);
+      }
     }
 
     /* Logo */
@@ -65,11 +98,10 @@
       align-self: center;
       padding: 12px;
       border-radius: 20px;
-
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.06);
       box-shadow:
-        0 4px 12px rgba(0, 0, 0, 0.6),
-        0 0 20px rgba(180, 210, 255, 0.10);
+        0 4px 14px rgba(0, 0, 0, 0.65),
+        0 0 16px rgba(190, 205, 235, 0.22);
     }
 
     .logo-box img {
@@ -86,99 +118,99 @@
     .identity .name {
       font-size: 1.35rem;
       font-weight: 600;
-      color: #e7efff;
+      color: #eef3ff;
     }
 
     .identity .subtitle {
       margin-top: 4px;
       font-size: 0.9rem;
-      color: #b9c7dd;
+      color: #bfc9de;
     }
 
     /* Tagline */
     .tagline {
       text-align: center;
       font-size: 0.82rem;
-      color: #d1dbec;
-      opacity: 0.85;
+      color: #d3d9ea;
+      opacity: 0.9;
       line-height: 1.4;
     }
 
-    /* Boutons – bleu clair premium */
+    /* Boutons – version plus classe, avec détails */
     .actions {
       display: flex;
       justify-content: center;
       gap: 12px;
       flex-wrap: wrap;
+      margin-top: 4px;
     }
 
     .action-btn {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 6px;
+      gap: 10px;
       padding: 10px 18px;
       border-radius: 999px;
       text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: white;
-
-      background: linear-gradient(145deg, #7fa4d8, #4c6ea9);
+      color: #1a2230;
+      background: linear-gradient(135deg, #f7f9ff, #dfe5f4);
+      border: 1px solid rgba(195, 205, 230, 0.9);
       box-shadow:
         0 6px 14px rgba(0, 0, 0, 0.55),
-        0 0 10px rgba(150, 190, 255, 0.25);
-
+        0 0 12px rgba(190, 205, 240, 0.3);
       transition: all 0.18s ease;
-    }
-
-    .action-btn span.icon {
-      font-size: 1.15rem;
+      min-width: 150px;
     }
 
     .action-btn:hover {
       transform: translateY(-2px);
-      filter: brightness(1.08);
       box-shadow:
-        0 10px 20px rgba(0, 0, 0, 0.7),
-        0 0 14px rgba(180, 210, 255, 0.35);
+        0 10px 22px rgba(0, 0, 0, 0.75),
+        0 0 16px rgba(210, 220, 245, 0.5);
     }
 
     .action-btn:active {
       transform: translateY(1px) scale(0.97);
+      box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.8);
     }
 
-    /* Contact block */
-    .contact-block {
-      padding: 12px 14px;
-      border-radius: 18px;
-
-      background: rgba(10, 18, 30, 0.7);
-      border: 1px solid rgba(170, 190, 230, 0.25);
-
-      font-size: 0.9rem;
-      color: #dfe8fa;
+    .icon-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      border: 1px solid rgba(160, 175, 210, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      background: radial-gradient(circle at 30% 20%, #ffffff, #dee4f3);
     }
 
-    .contact-line {
-      margin: 4px 0;
+    .btn-label {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
     }
 
-    .contact-block a {
-      color: #bcd6ff;
-      text-decoration: none;
+    .btn-label-main {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #1f2838;
     }
 
-    .contact-block a:hover {
-      text-decoration: underline;
+    .btn-label-sub {
+      font-size: 0.8rem;
+      color: #5c6476;
     }
 
     /* Footer */
     .footer-text {
       text-align: center;
-      margin-top: 10px;
+      margin-top: 8px;
       font-size: 0.75rem;
-      color: #cdd8ea;
+      color: #cdd6ea;
       opacity: 0.8;
     }
   </style>
@@ -206,30 +238,23 @@
         & Environnement
       </div>
 
-      <!-- Boutons -->
+      <!-- Boutons plus classes -->
       <div class="actions">
         <a class="action-btn" href="tel:0667025367">
-          <span class="icon">📞</span>
-          Appeler
+          <span class="icon-circle">📞</span>
+          <span class="btn-label">
+            <span class="btn-label-main">Appeler</span>
+            <span class="btn-label-sub">06&nbsp;67&nbsp;02&nbsp;53&nbsp;67</span>
+          </span>
         </a>
 
         <a class="action-btn" href="mailto:Marine.criado@mcsr.fr">
-          <span class="icon">✉️</span>
-          E-mail
+          <span class="icon-circle">✉️</span>
+          <span class="btn-label">
+            <span class="btn-label-main">Envoyer un mail</span>
+            <span class="btn-label-sub">Marine.criado@mcsr.fr</span>
+          </span>
         </a>
-      </div>
-
-      <!-- Contact -->
-      <div class="contact-block">
-        <p class="contact-line">
-          <strong>Téléphone :</strong>
-          <a href="tel:0667025367">06 67 02 53 67</a>
-        </p>
-
-        <p class="contact-line">
-          <strong>Email :</strong>
-          <a href="mailto:Marine.criado@mcsr.fr">Marine.criado@mcsr.fr</a>
-        </p>
       </div>
 
       <div class="footer-text">
