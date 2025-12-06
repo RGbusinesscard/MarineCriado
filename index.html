@@ -2,14 +2,15 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Carte de visite – MCSR / Marine Criado</title>
+  <title>MCSR – Marine Criado</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     body {
@@ -17,8 +18,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: radial-gradient(circle at top, #111827 0, #020617 55%, #02040a 100%);
-      color: #f5f5f5;
+      background: radial-gradient(circle at top, #d7e4f5 0%, #8ea6c9 45%, #2a3548 100%);
+      color: #f5f9ff;
     }
 
     .card-wrapper {
@@ -29,214 +30,204 @@
       width: 360px;
       max-width: 92vw;
       border-radius: 28px;
-      padding: 26px 20px 22px;
-      background: linear-gradient(150deg, #020617 0%, #0b1220 40%, #020617 100%);
-      border: 1.5px solid rgba(148, 163, 184, 0.5);
+      padding: 32px 20px;
+      background: linear-gradient(155deg, #1f2a3a 0%, #111927 50%, #0d141d 100%);
+      border: 1.5px solid rgba(180, 200, 255, 0.35);
+
       box-shadow:
-        0 0 20px rgba(15, 23, 42, 0.9),
-        0 25px 60px rgba(0, 0, 0, 0.9);
+        0 0 14px rgba(200, 220, 255, 0.30),
+        0 0 30px rgba(150, 180, 255, 0.20),
+        0 25px 55px rgba(0, 0, 0, 0.8);
+
+      position: relative;
       display: flex;
       flex-direction: column;
-      gap: 18px;
-      position: relative;
+      gap: 22px;
       overflow: hidden;
     }
 
-    /* Liseré néon doux autour de la carte */
+    /* Halo bleu clair chic */
     .card::before {
       content: "";
       position: absolute;
       inset: 0;
       border-radius: 28px;
-      border: 1.5px solid rgba(255, 255, 255, 0.45);
+      border: 1px solid rgba(200, 220, 255, 0.45);
       box-shadow:
-        0 0 10px rgba(255, 255, 255, 0.3),
-        0 0 30px rgba(59, 130, 246, 0.25);
+        0 0 12px rgba(220, 235, 255, 0.5),
+        0 0 40px rgba(180, 210, 255, 0.35);
       pointer-events: none;
     }
 
-    /* Logo texte MCSR */
+    /* Logo */
     .logo-box {
-      align-self: center;
       width: 170px;
-      height: 110px;
-      border-radius: 22px;
-      background: radial-gradient(circle at top, #0f172a 0%, #020617 75%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      align-self: center;
+      padding: 12px;
+      border-radius: 20px;
+
+      background: rgba(255, 255, 255, 0.05);
       box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.8),
-        0 0 18px rgba(15, 23, 42, 0.9);
-      padding: 10px 12px;
-      text-align: center;
+        0 4px 12px rgba(0, 0, 0, 0.6),
+        0 0 20px rgba(180, 210, 255, 0.10);
     }
 
-    .logo-mcsr {
-      font-size: 1.8rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #e5f0ff;
-    }
-
-    .logo-tagline {
-      margin-top: 6px;
-      font-size: 0.75rem;
-      line-height: 1.35;
-      color: #cbd5f5;
+    .logo-box img {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
     }
 
     /* Identité */
     .identity {
       text-align: center;
-      line-height: 1.35;
     }
 
     .identity .name {
-      font-size: 1.15rem;
+      font-size: 1.35rem;
       font-weight: 600;
+      color: #e7efff;
     }
 
     .identity .subtitle {
-      font-size: 0.9rem;
-      color: #9ca3c7;
       margin-top: 4px;
+      font-size: 0.9rem;
+      color: #b9c7dd;
     }
 
-    /* Boutons */
+    /* Tagline */
+    .tagline {
+      text-align: center;
+      font-size: 0.82rem;
+      color: #d1dbec;
+      opacity: 0.85;
+      line-height: 1.4;
+    }
+
+    /* Boutons – bleu clair premium */
     .actions {
       display: flex;
       justify-content: center;
       gap: 12px;
-      margin-top: 4px;
       flex-wrap: wrap;
     }
 
     .action-btn {
-      position: relative;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
-      min-width: 120px;
-      padding: 9px 16px;
+      padding: 10px 18px;
       border-radius: 999px;
-      border: none;
-      cursor: pointer;
       text-decoration: none;
-      color: #f9fafb;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       font-weight: 500;
-      letter-spacing: 0.02em;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
-      background: #1f2937;
-      transition:
-        transform 0.15s ease,
-        box-shadow 0.15s ease,
-        filter 0.15s ease,
-        background 0.2s ease;
+      color: white;
+
+      background: linear-gradient(145deg, #7fa4d8, #4c6ea9);
+      box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.55),
+        0 0 10px rgba(150, 190, 255, 0.25);
+
+      transition: all 0.18s ease;
     }
 
     .action-btn span.icon {
-      font-size: 1.1rem;
-    }
-
-    .action-btn.phone {
-      background: linear-gradient(135deg, #0ea5e9, #0369a1);
-    }
-
-    .action-btn.mail {
-      background: linear-gradient(135deg, #4f46e5, #1d4ed8);
+      font-size: 1.15rem;
     }
 
     .action-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.7);
-      filter: brightness(1.04);
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+      box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.7),
+        0 0 14px rgba(180, 210, 255, 0.35);
     }
 
     .action-btn:active {
-      transform: translateY(1px) scale(0.98);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
-      filter: brightness(0.97);
+      transform: translateY(1px) scale(0.97);
     }
 
-    /* Bloc contact */
+    /* Contact block */
     .contact-block {
-      margin-top: 6px;
-      padding: 10px 12px;
+      padding: 12px 14px;
       border-radius: 18px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.25);
-      font-size: 0.88rem;
-      color: #e5e7eb;
+
+      background: rgba(10, 18, 30, 0.7);
+      border: 1px solid rgba(170, 190, 230, 0.25);
+
+      font-size: 0.9rem;
+      color: #dfe8fa;
     }
 
     .contact-line {
-      margin: 3px 0;
+      margin: 4px 0;
     }
 
     .contact-block a {
-      color: #93c5fd;
+      color: #bcd6ff;
       text-decoration: none;
-      word-break: break-all;
     }
 
     .contact-block a:hover {
       text-decoration: underline;
     }
 
+    /* Footer */
     .footer-text {
       text-align: center;
       margin-top: 10px;
       font-size: 0.75rem;
-      color: #9ca3c7;
-      opacity: 0.9;
+      color: #cdd8ea;
+      opacity: 0.8;
     }
   </style>
 </head>
+
 <body>
 
   <div class="card-wrapper">
     <div class="card">
 
-      <!-- Logo texte MCSR -->
+      <!-- Logo -->
       <div class="logo-box">
-        <div class="logo-mcsr">MCSR</div>
-        <div class="logo-tagline">
-          Conseil en Energie,<br />
-          Sécurité, Environnement
-        </div>
+        <img src="high-res-ss nom.GIF" alt="Logo MCSR" />
       </div>
 
       <!-- Identité -->
       <div class="identity">
         <div class="name">Marine Criado</div>
-        <div class="subtitle">Contact MCSR</div>
+        <div class="subtitle">MCSR</div>
+      </div>
+
+      <!-- Tagline -->
+      <div class="tagline">
+        Conseil en Énergie, Sécurité<br>
+        & Environnement
       </div>
 
       <!-- Boutons -->
       <div class="actions">
-        <a class="action-btn phone" href="tel:0667025367">
+        <a class="action-btn" href="tel:0667025367">
           <span class="icon">📞</span>
-          <span>Appeler</span>
+          Appeler
         </a>
-        <a class="action-btn mail" href="mailto:Marine.criado@mcsr.fr">
+
+        <a class="action-btn" href="mailto:Marine.criado@mcsr.fr">
           <span class="icon">✉️</span>
-          <span>E-mail</span>
+          E-mail
         </a>
       </div>
 
-      <!-- Bloc contact texte -->
+      <!-- Contact -->
       <div class="contact-block">
         <p class="contact-line">
           <strong>Téléphone :</strong>
           <a href="tel:0667025367">06 67 02 53 67</a>
         </p>
+
         <p class="contact-line">
-          <strong>E-mail :</strong>
+          <strong>Email :</strong>
           <a href="mailto:Marine.criado@mcsr.fr">Marine.criado@mcsr.fr</a>
         </p>
       </div>
