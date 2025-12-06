@@ -13,20 +13,20 @@
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    /* === NOUVEAU FOND : BLEU MARINE === */
+    /* FOND BLEU MARINE */
     body {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #151b28;  /* même couleur que l’intérieur de la carte */
+      background: #151b28;
       padding: 20px;
     }
 
     /* === CADRE BOIS === */
     .frame {
       position: relative;
-      width: min(440px, 96vw);          /* légèrement plus large */
+      width: min(440px, 96vw);
       aspect-ratio: 13 / 18;
       background-image: url("IMG_7682.jpg");
       background-size: cover;
@@ -39,27 +39,28 @@
       overflow: hidden;
     }
 
-    /* === INTÉRIEUR BLANC === */
+    /* === ZONE BLANCHE (agrandie pour supprimer les bords visibles) === */
     .frame-inner {
-      width: 90%;       /* légèrement plus grand */
-      height: 92%;      /* légèrement plus haut */
+      width: 93%;     /* avant 90% → maintenant plus large */
+      height: 94%;    /* avant 92% → maintenant plus haut */
       background: #ffffff;
-      border-radius: 6px;
+      border-radius: 4px;
       box-shadow:
-        0 0 18px rgba(0, 0, 0, 0.08),
+        0 0 10px rgba(0, 0, 0, 0.07),
         inset 0 0 4px rgba(0, 0, 0, 0.03);
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 0;
+      overflow: hidden;
     }
 
-    /* === CARTE BLEUE AGRANDIE === */
+    /* === CARTE BLEUE — encore plus grande === */
     .card {
       width: 100%;
       height: 100%;
-      border-radius: 14px;
-      padding: 28px 20px; /* augmentation légère du padding */
+      border-radius: 10px; /* plus petit pour coller davantage au cadre */
+      padding: 30px 20px;
       background: radial-gradient(circle at top, #2a3550 0%, #151b28 45%, #0f141f 100%);
       border: 1px solid rgba(195, 210, 240, 0.7);
       box-shadow: 0 14px 28px rgba(0, 0, 0, 0.55);
@@ -75,12 +76,12 @@
     .card::after {
       content: "";
       position: absolute;
-      inset: -5px;
-      border-radius: 18px;
+      inset: -4px;
+      border-radius: 14px;
       border: 1px solid rgba(245, 247, 252, 0.75);
       box-shadow:
-        0 0 14px rgba(245, 247, 252, 0.5),
-        0 0 26px rgba(190, 205, 235, 0.35);
+        0 0 14px rgba(245, 247, 252, 0.45),
+        0 0 26px rgba(190, 205, 235, 0.3);
       pointer-events: none;
       animation: haloPulse 4s ease-in-out infinite;
     }
@@ -196,7 +197,6 @@
       font-size: 0.8rem;
     }
 
-    /* FOOTER */
     .footer-text {
       margin-top: 2px;
       text-align: center;
