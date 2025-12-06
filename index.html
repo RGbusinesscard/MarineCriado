@@ -22,9 +22,17 @@
       color: #f5f9ff;
     }
 
-    .card-wrapper {
-      padding: 20px;
+    /* --- CADRE BOIS AUTOUR DE LA CARTE --- */
+    .wood-frame {
+      padding: 18px;
+      border-radius: 34px;
+      background: url('https://i.imgur.com/3MlL5gl.png');
+      background-size: cover;
+      box-shadow:
+        0 4px 18px rgba(0, 0, 0, 0.35),
+        inset 0 0 3px rgba(255, 255, 255, 0.5);
     }
+    /* ------------------------------------- */
 
     .card {
       width: 360px;
@@ -32,10 +40,9 @@
       border-radius: 28px;
       padding: 32px 20px;
       background: linear-gradient(155deg, #202838 0%, #151b28 50%, #101621 100%);
-      border: 1px solid rgba(195, 210, 240, 0.7);
+      border: 1.5px solid rgba(195, 210, 240, 0.7);
       box-shadow:
         0 25px 55px rgba(0, 0, 0, 0.85);
-
       position: relative;
       display: flex;
       flex-direction: column;
@@ -55,7 +62,7 @@
       z-index: -1;
     }
 
-    /* Halo animé blanc/gris très léger */
+    /* Halo animé blanc/gris */
     .card::after {
       content: "";
       position: absolute;
@@ -136,7 +143,7 @@
       line-height: 1.4;
     }
 
-    /* Boutons – version plus classe, avec détails */
+    /* Boutons */
     .actions {
       display: flex;
       justify-content: center;
@@ -167,12 +174,6 @@
       box-shadow:
         0 10px 22px rgba(0, 0, 0, 0.75),
         0 0 16px rgba(210, 220, 245, 0.5);
-    }
-
-    .action-btn:active {
-      transform: translateY(1px) scale(0.97);
-      box-shadow:
-        0 4px 10px rgba(0, 0, 0, 0.8);
     }
 
     .icon-circle {
@@ -218,27 +219,23 @@
 
 <body>
 
-  <div class="card-wrapper">
+  <div class="wood-frame">
     <div class="card">
 
-      <!-- Logo -->
       <div class="logo-box">
         <img src="high-res-ss nom.GIF" alt="Logo MCSR" />
       </div>
 
-      <!-- Identité -->
       <div class="identity">
         <div class="name">Marine Criado</div>
         <div class="subtitle">MCSR</div>
       </div>
 
-      <!-- Tagline -->
       <div class="tagline">
         Conseil en Énergie, Sécurité<br>
         & Environnement
       </div>
 
-      <!-- Boutons plus classes -->
       <div class="actions">
         <a class="action-btn" href="tel:0667025367">
           <span class="icon-circle">📞</span>
@@ -251,7 +248,7 @@
         <a class="action-btn" href="mailto:Marine.criado@mcsr.fr">
           <span class="icon-circle">✉️</span>
           <span class="btn-label">
-            <span class="btn-label-main">Envoyer un mail</span>
+            <span class="btn-label-main">E-mail</span>
             <span class="btn-label-sub">Marine.criado@mcsr.fr</span>
           </span>
         </a>
