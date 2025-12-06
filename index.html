@@ -22,32 +22,49 @@
       padding: 20px;
     }
 
-    /* === CADRE BOIS CLAIR RÉALISTE (CSS, PAS D’IMAGE MOCHE) === */
+    /* ==== CADRE BOIS CLAIR AVEC VEINAGE (CSS SEULEMENT) ==== */
     .wood-frame {
+      position: relative;
       padding: 18px;
       border-radius: 32px;
-      background:
-        /* veinage bois */
-        repeating-linear-gradient(
-          90deg,
-          #f9f1e4 0,
-          #f9f1e4 22px,
-          #f2e4cf 22px,
-          #f2e4cf 25px
-        );
+      background: #f6e6cf;
       box-shadow:
         0 4px 18px rgba(0, 0, 0, 0.25),
-        inset 0 0 4px rgba(255, 255, 255, 0.7);
+        inset 0 0 3px rgba(255, 255, 255, 0.6);
     }
 
-    /* légère variation de teinte bois */
+    /* veinage linéaire */
     .wood-frame::before {
       content: "";
       position: absolute;
       inset: 0;
       border-radius: 32px;
-      background: linear-gradient(145deg, rgba(255,255,255,0.4), rgba(222,198,164,0.5));
+      background:
+        repeating-linear-gradient(
+          90deg,
+          rgba(196, 169, 132, 0.35) 0,
+          rgba(196, 169, 132, 0.35) 3px,
+          rgba(243, 221, 190, 0.35) 3px,
+          rgba(243, 221, 190, 0.35) 8px
+        );
       mix-blend-mode: multiply;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    /* bords légèrement plus foncés pour l'effet cadre */
+    .wood-frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 32px;
+      background:
+        radial-gradient(circle at 0 0, rgba(0, 0, 0, 0.05), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(0, 0, 0, 0.05), transparent 55%),
+        radial-gradient(circle at 0 100%, rgba(0, 0, 0, 0.06), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(0, 0, 0, 0.06), transparent 55%);
+      mix-blend-mode: multiply;
+      opacity: 0.9;
       pointer-events: none;
     }
 
@@ -55,8 +72,9 @@
       position: relative;
       z-index: 1;
     }
+    /* ====================================================== */
 
-    /* === CARTE BLEU CHIC AVEC HALO ANIMÉ === */
+    /* ==== CARTE BLEU CHIC AVEC HALO ANIMÉ ==== */
     .card {
       width: 360px;
       max-width: 92vw;
@@ -73,7 +91,6 @@
       overflow: hidden;
     }
 
-    /* halo animé blanc/gris autour de la carte */
     .card::after {
       content: "";
       position: absolute;
@@ -91,24 +108,24 @@
       0% {
         opacity: 0.25;
         box-shadow:
-          0 0 14px rgba(245,247,252,0.4),
-          0 0 24px rgba(190,205,235,0.3);
+          0 0 14px rgba(245, 247, 252, 0.4),
+          0 0 24px rgba(190, 205, 235, 0.3);
       }
       50% {
         opacity: 0.8;
         box-shadow:
-          0 0 24px rgba(245,247,252,0.7),
-          0 0 40px rgba(190,205,235,0.5);
+          0 0 24px rgba(245, 247, 252, 0.7),
+          0 0 40px rgba(190, 205, 235, 0.5);
       }
       100% {
         opacity: 0.25;
         box-shadow:
-          0 0 14px rgba(245,247,252,0.4),
-          0 0 24px rgba(190,205,235,0.3);
+          0 0 14px rgba(245, 247, 252, 0.4),
+          0 0 24px rgba(190, 205, 235, 0.3);
       }
     }
 
-    /* === LOGO === */
+    /* ==== LOGO ==== */
     .logo-box {
       width: 170px;
       margin: 0 auto;
@@ -126,7 +143,7 @@
       border-radius: 12px;
     }
 
-    /* === IDENTITÉ === */
+    /* ==== IDENTITÉ ==== */
     .identity {
       text-align: center;
       color: #eef3ff;
@@ -143,7 +160,7 @@
       color: #bfc9de;
     }
 
-    /* === TAGLINE === */
+    /* ==== TAGLINE ==== */
     .tagline {
       text-align: center;
       font-size: 0.82rem;
@@ -152,7 +169,7 @@
       line-height: 1.4;
     }
 
-    /* === BOUTONS PREMIUM === */
+    /* ==== BOUTONS PREMIUM ==== */
     .actions {
       display: flex;
       justify-content: center;
@@ -220,7 +237,7 @@
       font-size: 0.8rem;
     }
 
-    /* === FOOTER === */
+    /* ==== FOOTER ==== */
     .footer-text {
       text-align: center;
       margin-top: 8px;
