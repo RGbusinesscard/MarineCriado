@@ -19,13 +19,15 @@
       align-items: center;
       justify-content: center;
       background: #151b28;
-      padding: 20px;
+      padding: 16px;
     }
 
+    /* === CADRE BOIS === */
     .frame {
       position: relative;
       width: min(440px, 96vw);
       aspect-ratio: 13 / 18;
+      max-height: 96vh;          /* 🔹 ne dépasse plus la hauteur de l’écran */
       background-image: url("IMG_7682.jpg");
       background-size: cover;
       background-position: center;
@@ -52,6 +54,7 @@
       overflow: hidden;
     }
 
+    /* === CARTE BLEUE === */
     .card {
       width: 100%;
       height: 100%;
@@ -64,7 +67,7 @@
       display: flex;
       flex-direction: column;
       gap: 18px;
-      overflow: hidden;
+      overflow: hidden;          /* on gère le scroll en mobile plus bas */
       color: #eef3ff;
     }
 
@@ -195,6 +198,65 @@
       color: #cdd6ea;
       opacity: 0.8;
     }
+
+    /* 🔹 ADAPTATION SPÉCIALE TÉLÉPHONE */
+    @media (max-width: 480px) {
+      .frame {
+        width: 94vw;
+        max-height: 94vh;
+      }
+
+      .frame-inner {
+        width: 92%;
+        height: 93%;
+      }
+
+      .card {
+        padding: 22px 16px;
+        gap: 14px;
+        overflow-y: auto;  /* si vraiment c’est trop serré, scroll dans la carte */
+      }
+
+      .logo-box {
+        width: 120px;
+        padding: 10px;
+      }
+
+      .identity .name {
+        font-size: 1.05rem;
+      }
+
+      .identity .subtitle {
+        font-size: 0.8rem;
+      }
+
+      .tagline {
+        font-size: 0.74rem;
+      }
+
+      .action-btn {
+        padding: 9px 12px;
+        gap: 8px;
+      }
+
+      .icon-circle {
+        width: 26px;
+        height: 26px;
+        font-size: 0.95rem;
+      }
+
+      .btn-text-main {
+        font-size: 0.68rem;
+      }
+
+      .btn-text-sub {
+        font-size: 0.76rem;
+      }
+
+      .footer-text {
+        font-size: 0.68rem;
+      }
+    }
   </style>
 </head>
 
@@ -248,7 +310,6 @@ BEGIN:VCARD%0AVERSION:3.0%0AFN:Marine Criado%0AORG:MCSR%0ATITLE:Conseil en Energ
               <span class="btn-text-sub">le contact</span>
             </div>
           </a>
-
         </div>
 
         <div class="footer-text">
