@@ -18,60 +18,97 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #dfe6f2;
+      background: #e5e9f2;
       padding: 20px;
     }
 
-    /* VRAI CADRE EN BOIS CLAIR ÉLÉGANT */
+    /* === CADRE BOIS CLAIR RÉALISTE (CSS, PAS D’IMAGE MOCHE) === */
     .wood-frame {
       padding: 18px;
       border-radius: 32px;
-      background: url("https://i.imgur.com/hk6vY1K.jpg"); /* vraie texture bois clair */
-      background-size: cover;
-      background-position: center;
+      background:
+        /* veinage bois */
+        repeating-linear-gradient(
+          90deg,
+          #f9f1e4 0,
+          #f9f1e4 22px,
+          #f2e4cf 22px,
+          #f2e4cf 25px
+        );
       box-shadow:
-        0 4px 18px rgba(0, 0, 0, 0.35),
-        inset 0 0 10px rgba(255, 255, 255, 0.7);
+        0 4px 18px rgba(0, 0, 0, 0.25),
+        inset 0 0 4px rgba(255, 255, 255, 0.7);
     }
 
+    /* légère variation de teinte bois */
+    .wood-frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 32px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.4), rgba(222,198,164,0.5));
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+
+    .frame-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* === CARTE BLEU CHIC AVEC HALO ANIMÉ === */
     .card {
       width: 360px;
       max-width: 92vw;
       border-radius: 28px;
       padding: 32px 20px;
-      background: linear-gradient(155deg, #202838 0%, #151b28 50%, #101621 100%);
-      border: 1.5px solid rgba(195, 210, 240, 0.7);
-      box-shadow: 
-        0 25px 55px rgba(0, 0, 0, 0.85);
+      background: radial-gradient(circle at top, #27344a 0%, #151b28 45%, #0f141f 100%);
+      border: 1px solid rgba(195, 210, 240, 0.7);
+      box-shadow:
+        0 24px 50px rgba(0, 0, 0, 0.85);
       position: relative;
       display: flex;
       flex-direction: column;
       gap: 22px;
       overflow: hidden;
-      z-index: 0;
     }
 
-    /* Halo animé premium */
+    /* halo animé blanc/gris autour de la carte */
     .card::after {
       content: "";
       position: absolute;
       inset: -6px;
       border-radius: 34px;
-      border: 1px solid rgba(255, 255, 255, 0.45);
+      border: 1px solid rgba(245, 247, 252, 0.75);
       box-shadow:
-        0 0 22px rgba(255, 255, 255, 0.55),
-        0 0 38px rgba(180, 200, 230, 0.35);
-      animation: haloPulse 4s ease-in-out infinite;
+        0 0 18px rgba(245, 247, 252, 0.55),
+        0 0 32px rgba(190, 205, 235, 0.4);
       pointer-events: none;
+      animation: haloPulse 4s ease-in-out infinite;
     }
 
     @keyframes haloPulse {
-      0% { opacity: 0.25; }
-      50% { opacity: 0.75; }
-      100% { opacity: 0.25; }
+      0% {
+        opacity: 0.25;
+        box-shadow:
+          0 0 14px rgba(245,247,252,0.4),
+          0 0 24px rgba(190,205,235,0.3);
+      }
+      50% {
+        opacity: 0.8;
+        box-shadow:
+          0 0 24px rgba(245,247,252,0.7),
+          0 0 40px rgba(190,205,235,0.5);
+      }
+      100% {
+        opacity: 0.25;
+        box-shadow:
+          0 0 14px rgba(245,247,252,0.4),
+          0 0 24px rgba(190,205,235,0.3);
+      }
     }
 
-    /* Logo */
+    /* === LOGO === */
     .logo-box {
       width: 170px;
       margin: 0 auto;
@@ -89,7 +126,7 @@
       border-radius: 12px;
     }
 
-    /* Identité */
+    /* === IDENTITÉ === */
     .identity {
       text-align: center;
       color: #eef3ff;
@@ -106,16 +143,16 @@
       color: #bfc9de;
     }
 
-    /* Tagline */
+    /* === TAGLINE === */
     .tagline {
       text-align: center;
       font-size: 0.82rem;
-      line-height: 1.4;
-      opacity: 0.9;
       color: #d3d9ea;
+      opacity: 0.9;
+      line-height: 1.4;
     }
 
-    /* Boutons classe */
+    /* === BOUTONS PREMIUM === */
     .actions {
       display: flex;
       justify-content: center;
@@ -128,89 +165,116 @@
       align-items: center;
       gap: 10px;
       padding: 12px 18px;
-      min-width: 160px;
+      min-width: 170px;
       border-radius: 999px;
       text-decoration: none;
-      background: linear-gradient(135deg, #f7f9ff, #dfe5f4);
-      border: 1px solid rgba(190, 200, 230, 0.7);
-      color: #1a2230;
+      background: linear-gradient(135deg, #f8f9ff, #dde4f5);
+      border: 1px solid rgba(190, 200, 230, 0.85);
+      color: #1b2230;
       box-shadow:
-        0 6px 14px rgba(0,0,0,0.55),
-        0 0 12px rgba(180,200,240,0.25);
+        0 6px 14px rgba(0, 0, 0, 0.55),
+        0 0 12px rgba(180, 200, 240, 0.25);
       transition: all 0.2s ease;
     }
 
     .action-btn:hover {
       transform: translateY(-2px);
       box-shadow:
-        0 10px 22px rgba(0,0,0,0.75),
-        0 0 16px rgba(210,220,245,0.5);
+        0 10px 22px rgba(0, 0, 0, 0.8),
+        0 0 16px rgba(210, 220, 245, 0.5);
+    }
+
+    .action-btn:active {
+      transform: translateY(1px) scale(0.97);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.85);
     }
 
     .icon-circle {
       width: 30px;
       height: 30px;
       border-radius: 999px;
-      background: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.2rem;
+      background: #ffffff;
       border: 1px solid #cbd4e6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
     }
 
     .btn-text {
       display: flex;
       flex-direction: column;
-      font-size: 0.8rem;
       line-height: 1.1;
+      font-size: 0.8rem;
     }
 
+    .btn-text-main {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.76rem;
+      color: #1f2838;
+    }
+
+    .btn-text-sub {
+      color: #5c6476;
+      font-size: 0.8rem;
+    }
+
+    /* === FOOTER === */
+    .footer-text {
+      text-align: center;
+      margin-top: 8px;
+      font-size: 0.75rem;
+      color: #cdd6ea;
+      opacity: 0.8;
+    }
   </style>
 </head>
 
 <body>
 
   <div class="wood-frame">
+    <div class="frame-inner">
+      <div class="card">
 
-    <div class="card">
+        <div class="logo-box">
+          <img src="high-res-ss nom.GIF" alt="Logo MCSR" />
+        </div>
 
-      <div class="logo-box">
-        <img src="high-res-ss nom.GIF" alt="Logo MCSR">
+        <div class="identity">
+          <div class="name">Marine Criado</div>
+          <div class="subtitle">MCSR</div>
+        </div>
+
+        <div class="tagline">
+          Conseil en Énergie, Sécurité<br>
+          & Environnement
+        </div>
+
+        <div class="actions">
+          <a class="action-btn" href="tel:0667025367">
+            <div class="icon-circle">📞</div>
+            <div class="btn-text">
+              <span class="btn-text-main">Appeler</span>
+              <span class="btn-text-sub">06&nbsp;67&nbsp;02&nbsp;53&nbsp;67</span>
+            </div>
+          </a>
+
+          <a class="action-btn" href="mailto:Marine.criado@mcsr.fr">
+            <div class="icon-circle">✉️</div>
+            <div class="btn-text">
+              <span class="btn-text-main">E-mail</span>
+              <span class="btn-text-sub">Marine.criado@mcsr.fr</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="footer-text">
+          Carte de visite dématérialisée – MCSR
+        </div>
+
       </div>
-
-      <div class="identity">
-        <div class="name">Marine Criado</div>
-        <div class="subtitle">MCSR</div>
-      </div>
-
-      <div class="tagline">
-        Conseil en Énergie, Sécurité<br>
-        & Environnement
-      </div>
-
-      <div class="actions">
-
-        <a href="tel:0667025367" class="action-btn">
-          <div class="icon-circle">📞</div>
-          <div class="btn-text">
-            <span>Appeler</span>
-            <small>06 67 02 53 67</small>
-          </div>
-        </a>
-
-        <a href="mailto:Marine.criado@mcsr.fr" class="action-btn">
-          <div class="icon-circle">✉️</div>
-          <div class="btn-text">
-            <span>Email</span>
-            <small>Marine.criado@mcsr.fr</small>
-          </div>
-        </a>
-
-      </div>
-
     </div>
-
   </div>
 
 </body>
