@@ -13,7 +13,6 @@
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    /* FOND BLEU MARINE */
     body {
       min-height: 100vh;
       display: flex;
@@ -23,7 +22,6 @@
       padding: 20px;
     }
 
-    /* === CADRE BOIS === */
     .frame {
       position: relative;
       width: min(440px, 96vw);
@@ -39,10 +37,9 @@
       overflow: hidden;
     }
 
-    /* === ZONE BLANCHE (agrandie pour supprimer les bords visibles) === */
     .frame-inner {
-      width: 93%;     /* avant 90% → maintenant plus large */
-      height: 94%;    /* avant 92% → maintenant plus haut */
+      width: 93%;
+      height: 94%;
       background: #ffffff;
       border-radius: 4px;
       box-shadow:
@@ -55,11 +52,10 @@
       overflow: hidden;
     }
 
-    /* === CARTE BLEUE — encore plus grande === */
     .card {
       width: 100%;
       height: 100%;
-      border-radius: 10px; /* plus petit pour coller davantage au cadre */
+      border-radius: 10px;
       padding: 30px 20px;
       background: radial-gradient(circle at top, #2a3550 0%, #151b28 45%, #0f141f 100%);
       border: 1px solid rgba(195, 210, 240, 0.7);
@@ -72,7 +68,6 @@
       color: #eef3ff;
     }
 
-    /* Halo animé */
     .card::after {
       content: "";
       position: absolute;
@@ -92,7 +87,6 @@
       100% { opacity: 0.25; }
     }
 
-    /* LOGO */
     .logo-box {
       width: 130px;
       margin: 0 auto;
@@ -110,7 +104,6 @@
       border-radius: 12px;
     }
 
-    /* IDENTITÉ */
     .identity {
       text-align: center;
     }
@@ -126,7 +119,6 @@
       color: #c1cae2;
     }
 
-    /* TAGLINE */
     .tagline {
       text-align: center;
       font-size: 0.78rem;
@@ -135,7 +127,6 @@
       line-height: 1.35;
     }
 
-    /* BOUTONS */
     .actions {
       margin-top: 4px;
       display: flex;
@@ -228,6 +219,7 @@
         </div>
 
         <div class="actions">
+          <!-- Appeler -->
           <a class="action-btn" href="tel:0667025367">
             <div class="icon-circle">📞</div>
             <div class="btn-text">
@@ -236,6 +228,7 @@
             </div>
           </a>
 
+          <!-- Email -->
           <a class="action-btn" href="mailto:Marine.criado@mcsr.fr">
             <div class="icon-circle">✉️</div>
             <div class="btn-text">
@@ -243,6 +236,19 @@
               <span class="btn-text-sub">Marine.criado@mcsr.fr</span>
             </div>
           </a>
+
+          <!-- Ajouter le contact -->
+          <a class="action-btn"
+             download="Marine-Criado.vcf"
+             href='data:text/vcard;charset=utf-8,
+BEGIN:VCARD%0AVERSION:3.0%0AFN:Marine Criado%0AORG:MCSR%0ATITLE:Conseil en Energie, Sécurité, Environnement%0ATEL;TYPE=CELL:06 67 02 53 67%0AEMAIL:Marine.criado@mcsr.fr%0AEND:VCARD'>
+            <div class="icon-circle">➕</div>
+            <div class="btn-text">
+              <span class="btn-text-main">Ajouter</span>
+              <span class="btn-text-sub">le contact</span>
+            </div>
+          </a>
+
         </div>
 
         <div class="footer-text">
