@@ -9,40 +9,39 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Inter", system-ui, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
     }
 
     body {
       min-height: 100vh;
-      background: linear-gradient(135deg, #0c0f16, #111520, #0b0e15);
-      background-size: 200% 200%;
-      animation: bgMove 12s ease infinite;
+      background: radial-gradient(circle at top, #151a22 0, #05070b 55%, #020308 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 24px;
-      color: #e9eef7;
+      color: #f4f6fb;
     }
 
-    @keyframes bgMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* --- Carte type ingénieur/consulting --- */
-    .card {
+    /* Cadre extérieur fin (effet carte physique) */
+    .outer-frame {
       width: 100%;
-      max-width: 430px;
-      padding: 32px 26px;
-      background: rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(18px);
-      border-radius: 22px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      max-width: 440px;
+      padding: 14px;
+      border-radius: 26px;
+      border: 1px solid rgba(228, 204, 149, 0.25);
+      background: radial-gradient(circle at top, #121720 0, #05070b 70%);
       box-shadow:
-        0 0 30px rgba(0, 120, 255, 0.25),
-        0 4px 18px rgba(0, 0, 0, 0.45);
+        0 30px 60px rgba(0, 0, 0, 0.8),
+        0 0 0 1px rgba(255, 255, 255, 0.02);
+    }
+
+    /* Carte intérieure effet verre */
+    .card {
       position: relative;
+      padding: 30px 26px 26px;
+      border-radius: 20px;
+      background: linear-gradient(140deg, rgba(9, 13, 22, 0.96), rgba(10, 19, 33, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.06);
       overflow: hidden;
     }
 
@@ -50,135 +49,261 @@
       content: "";
       position: absolute;
       inset: -80px;
-      background: radial-gradient(circle, rgba(0,152,255,0.18), transparent 60%);
-      animation: rotate 14s linear infinite;
+      background:
+        radial-gradient(circle at 10% 0, rgba(0, 136, 204, 0.32), transparent 55%),
+        radial-gradient(circle at 90% 100%, rgba(235, 200, 140, 0.25), transparent 60%);
+      opacity: 0.9;
       z-index: -1;
     }
 
-    @keyframes rotate {
-      to { transform: rotate(360deg); }
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      pointer-events: none;
     }
 
-    /* --- Logo --- */
-    .logo-box {
-      text-align: center;
+    /* Bandeau discret “conseil” */
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(228, 204, 149, 0.5);
+      color: #e4cc95;
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .tag-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #e4cc95;
+    }
+
+    /* Logo + titre */
+    .header {
+      display: flex;
+      gap: 18px;
+      align-items: center;
       margin-bottom: 22px;
     }
 
-    .logo-box img {
-      width: 130px;
-      height: 130px;
-      border-radius: 20px;
-      object-fit: cover;
+    .logo-box {
+      flex-shrink: 0;
+      width: 80px;
+      height: 80px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #05070b;
       box-shadow:
-        0 6px 18px rgba(0,0,0,0.6),
-        0 0 22px rgba(0,150,255,0.35);
+        0 10px 24px rgba(0, 0, 0, 0.8),
+        0 0 18px rgba(0, 136, 204, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    /* --- Titres --- */
+    .logo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .title-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
     .title {
-      text-align: center;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #76b8ff;
-      margin-bottom: 4px;
+      font-size: 1.55rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #f7f7ff;
     }
 
     .subtitle {
-      text-align: center;
-      font-size: 1rem;
-      opacity: 0.85;
-      margin-bottom: 26px;
+      font-size: 0.86rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #9fb6d8;
     }
 
-    /* --- Infos --- */
-    .info {
-      text-align: center;
-      font-size: 1rem;
-      margin-bottom: 10px;
+    /* Ligne fine de séparation */
+    .divider {
+      height: 1px;
+      margin: 18px 0 16px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(159, 182, 216, 0.7),
+        transparent
+      );
     }
 
-    .info a {
-      color: #9ed0ff;
+    /* Infos contact */
+    .info-block {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 18px;
+      font-size: 0.95rem;
+    }
+
+    .info-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #7e8ba4;
+    }
+
+    .info-main a {
+      color: #bcd8ff;
       text-decoration: none;
-      font-weight: 500;
     }
 
-    .info a:hover {
+    .info-main a:hover {
       text-decoration: underline;
     }
 
-    /* --- Boutons --- */
+    .info-main {
+      font-weight: 500;
+    }
+
+    /* Boutons */
     .buttons {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      margin-top: 24px;
+      gap: 10px;
+      margin-top: 10px;
     }
 
     .btn {
-      padding: 13px;
-      border-radius: 14px;
+      position: relative;
+      padding: 11px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(188, 216, 255, 0.35);
       text-align: center;
-      font-size: 1rem;
+      font-size: 0.95rem;
       text-decoration: none;
-      transition: 0.18s;
+      color: #f4f6fb;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+      background: linear-gradient(120deg, rgba(11, 18, 32, 0.95), rgba(9, 26, 48, 0.98));
+    }
+
+    .btn.primary {
+      border-color: rgba(0, 153, 255, 0.65);
+      background: linear-gradient(135deg, #0099ff, #4ab3ff);
+      color: #04101c;
       font-weight: 600;
-      backdrop-filter: blur(12px);
-    }
-
-    .btn.call {
-      background: linear-gradient(135deg, #74b9ff, #2988ff);
-      color: #fff;
-      box-shadow: 0 0 14px rgba(95, 165, 255, 0.6);
-    }
-
-    .btn.mail {
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255,255,255,0.25);
-      color: #dfe9f7;
+      box-shadow:
+        0 8px 20px rgba(0, 153, 255, 0.55),
+        0 0 18px rgba(0, 153, 255, 0.45);
     }
 
     .btn:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 18px rgba(255,255,255,0.18);
+      transform: translateY(-1px);
+      box-shadow:
+        0 10px 24px rgba(0, 0, 0, 0.7),
+        0 0 18px rgba(255, 255, 255, 0.16);
+    }
+
+    .btn.primary:hover {
+      box-shadow:
+        0 10px 26px rgba(0, 153, 255, 0.7),
+        0 0 22px rgba(0, 153, 255, 0.6);
+    }
+
+    .btn-icon {
+      font-size: 1.05rem;
     }
 
     .footer {
-      margin-top: 28px;
-      font-size: 0.75rem;
-      opacity: 0.7;
-      text-align: center;
+      margin-top: 22px;
+      font-size: 0.72rem;
+      color: #6f7a8f;
+      text-align: right;
+    }
+
+    @media (max-width: 480px) {
+      .outer-frame {
+        padding: 10px;
+        border-radius: 22px;
+      }
+
+      .card {
+        padding: 24px 18px 20px;
+      }
+
+      .header {
+        gap: 14px;
+      }
+
+      .title {
+        font-size: 1.3rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="card">
+  <div class="outer-frame">
+    <div class="card">
 
-    <div class="logo-box">
-      <img src="high-res-ss nom.GIF" alt="Logo MCSR">
+      <div class="tag">
+        <span class="tag-dot"></span>
+        <span>Conseil & Ingénierie</span>
+      </div>
+
+      <div class="header">
+        <div class="logo-box">
+          <img src="high-res-ss nom.GIF" alt="Logo MCSR">
+        </div>
+        <div class="title-block">
+          <div class="title">MCSR</div>
+          <div class="subtitle">Énergie · Sécurité · Environnement</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="info-block">
+        <div class="info-label">Contact</div>
+        <div class="info-main">
+          <a href="mailto:Marine.criado@mcsr.fr">Marine.criado@mcsr.fr</a>
+        </div>
+        <div class="info-main">
+          <a href="tel:+33667025367">06 67 02 53 67</a>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <a class="btn primary" href="tel:+33667025367">
+          <span class="btn-icon">📞</span>
+          <span>Appeler</span>
+        </a>
+        <a class="btn" href="mailto:Marine.criado@mcsr.fr">
+          <span class="btn-icon">✉️</span>
+          <span>Envoyer un email</span>
+        </a>
+      </div>
+
+      <div class="footer">
+        Propulsé par RG.card — Mini-site NFC
+      </div>
+
     </div>
-
-    <div class="title">MCSR</div>
-
-    <div class="subtitle">Conseil en Énergie · Sécurité · Environnement</div>
-
-    <div class="info">
-      <a href="mailto:Marine.criado@mcsr.fr">Marine.criado@mcsr.fr</a>
-    </div>
-
-    <div class="info">
-      <a href="tel:+33667025367">06 67 02 53 67</a>
-    </div>
-
-    <div class="buttons">
-      <a class="btn call" href="tel:+33667025367">📞 Appeler</a>
-      <a class="btn mail" href="mailto:Marine.criado@mcsr.fr">✉️ Envoyer un email</a>
-    </div>
-
-    <div class="footer">Propulsé par RG.card — Mini-site NFC</div>
-
   </div>
 
 </body>
