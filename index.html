@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <title>MCSR – Marine Criado</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: "Inter", system-ui, sans-serif;
     }
 
     body {
       min-height: 100vh;
-      font-family: "Inter", system-ui, sans-serif;
-      background: linear-gradient(120deg, #1a1a1d, #22232d, #1d1b26);
-      background-size: 300% 300%;
-      animation: bgMove 14s ease infinite;
+      background: linear-gradient(135deg, #0c0f16, #111520, #0b0e15);
+      background-size: 200% 200%;
+      animation: bgMove 12s ease infinite;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 22px;
-      color: #ffffff;
+      padding: 24px;
+      color: #e9eef7;
     }
 
     @keyframes bgMove {
@@ -30,18 +30,18 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Carte effet verre / néon */
+    /* --- Carte type ingénieur/consulting --- */
     .card {
       width: 100%;
       max-width: 430px;
-      padding: 28px 24px;
-      border-radius: 22px;
-      backdrop-filter: blur(18px) brightness(1.1);
+      padding: 32px 26px;
       background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(18px);
+      border-radius: 22px;
       border: 1px solid rgba(255, 255, 255, 0.12);
       box-shadow:
-        0 0 18px rgba(186, 85, 255, 0.35),
-        0 0 45px rgba(0, 180, 255, 0.25);
+        0 0 30px rgba(0, 120, 255, 0.25),
+        0 4px 18px rgba(0, 0, 0, 0.45);
       position: relative;
       overflow: hidden;
     }
@@ -49,14 +49,9 @@
     .card::before {
       content: "";
       position: absolute;
-      inset: -60px;
-      background: conic-gradient(
-        rgba(200,0,255,0.3),
-        rgba(0,180,255,0.4),
-        rgba(200,0,255,0.3)
-      );
-      filter: blur(80px);
-      animation: rotate 12s linear infinite;
+      inset: -80px;
+      background: radial-gradient(circle, rgba(0,152,255,0.18), transparent 60%);
+      animation: rotate 14s linear infinite;
       z-index: -1;
     }
 
@@ -64,49 +59,47 @@
       to { transform: rotate(360deg); }
     }
 
-    /* Logo */
+    /* --- Logo --- */
     .logo-box {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 18px;
+      text-align: center;
+      margin-bottom: 22px;
     }
 
     .logo-box img {
-      width: 115px;
-      height: 115px;
-      border-radius: 22px;
+      width: 130px;
+      height: 130px;
+      border-radius: 20px;
       object-fit: cover;
       box-shadow:
-        0 4px 18px rgba(0,0,0,0.55),
-        0 0 20px rgba(255,255,255,0.35);
+        0 6px 18px rgba(0,0,0,0.6),
+        0 0 22px rgba(0,150,255,0.35);
     }
 
-    /* Titre */
+    /* --- Titres --- */
     .title {
       text-align: center;
       font-size: 1.6rem;
       font-weight: 700;
-      color: #d967ff;
-      margin-bottom: 6px;
-      letter-spacing: 0.04em;
+      color: #76b8ff;
+      margin-bottom: 4px;
     }
 
     .subtitle {
       text-align: center;
       font-size: 1rem;
-      color: #d386ff;
-      margin-bottom: 22px;
+      opacity: 0.85;
+      margin-bottom: 26px;
     }
 
-    /* Infos */
+    /* --- Infos --- */
     .info {
       text-align: center;
       font-size: 1rem;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .info a {
-      color: #8ee7ff;
+      color: #9ed0ff;
       text-decoration: none;
       font-weight: 500;
     }
@@ -115,12 +108,12 @@
       text-decoration: underline;
     }
 
-    /* Boutons */
+    /* --- Boutons --- */
     .buttons {
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-top: 20px;
+      margin-top: 24px;
     }
 
     .btn {
@@ -129,33 +122,33 @@
       text-align: center;
       font-size: 1rem;
       text-decoration: none;
-      transition: 0.2s;
+      transition: 0.18s;
       font-weight: 600;
       backdrop-filter: blur(12px);
     }
 
-    .btn.tel {
-      background: linear-gradient(135deg, #d86dff, #8e5cff);
-      color: #ffffff;
-      box-shadow: 0 0 14px rgba(189, 87, 255, 0.6);
+    .btn.call {
+      background: linear-gradient(135deg, #74b9ff, #2988ff);
+      color: #fff;
+      box-shadow: 0 0 14px rgba(95, 165, 255, 0.6);
     }
 
     .btn.mail {
-      background: rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.12);
       border: 1px solid rgba(255,255,255,0.25);
-      color: #e2e2ff;
+      color: #dfe9f7;
     }
 
     .btn:hover {
       transform: scale(1.03);
-      box-shadow: 0 0 18px rgba(255,255,255,0.25);
+      box-shadow: 0 0 18px rgba(255,255,255,0.18);
     }
 
     .footer {
-      text-align: center;
+      margin-top: 28px;
       font-size: 0.75rem;
       opacity: 0.7;
-      margin-top: 22px;
+      text-align: center;
     }
   </style>
 </head>
@@ -164,12 +157,12 @@
   <div class="card">
 
     <div class="logo-box">
-      <img src="IMG_7682.jpg" alt="Logo MCSR">
+      <img src="high-res-ss nom.GIF" alt="Logo MCSR">
     </div>
 
     <div class="title">MCSR</div>
 
-    <div class="subtitle">Conseil en Énergie, Sécurité, Environnement</div>
+    <div class="subtitle">Conseil en Énergie · Sécurité · Environnement</div>
 
     <div class="info">
       <a href="mailto:Marine.criado@mcsr.fr">Marine.criado@mcsr.fr</a>
@@ -180,7 +173,7 @@
     </div>
 
     <div class="buttons">
-      <a class="btn tel" href="tel:+33667025367">📞 Appeler</a>
+      <a class="btn call" href="tel:+33667025367">📞 Appeler</a>
       <a class="btn mail" href="mailto:Marine.criado@mcsr.fr">✉️ Envoyer un email</a>
     </div>
 
