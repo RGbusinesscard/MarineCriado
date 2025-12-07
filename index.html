@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  >Marine CRIADO – Conseil en Énergie Sécurité & Environnement</title>
+  <title>Marine CRIADO – MCSR</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     * {
@@ -22,7 +22,6 @@
       color: #f4f6fb;
     }
 
-    /* Cadre extérieur fin (effet carte physique) */
     .outer-frame {
       width: 100%;
       max-width: 440px;
@@ -35,7 +34,6 @@
         0 0 0 1px rgba(255, 255, 255, 0.02);
     }
 
-    /* Carte intérieure effet verre */
     .card {
       position: relative;
       padding: 30px 26px 26px;
@@ -56,16 +54,6 @@
       z-index: -1;
     }
 
-    .card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      pointer-events: none;
-    }
-
-    /* Bandeau discret “conseil” */
     .tag {
       display: inline-flex;
       align-items: center;
@@ -87,7 +75,6 @@
       background: #e4cc95;
     }
 
-    /* Logo + titre */
     .header {
       display: flex;
       gap: 18px;
@@ -121,34 +108,28 @@
       gap: 4px;
     }
 
+    /* ✔️ TA MODIFICATION : Marine CRIADO */
     .title {
       font-size: 1.55rem;
       font-weight: 600;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: #f7f7ff;
     }
 
     .subtitle {
       font-size: 0.86rem;
-      letter-spacing: 0.11em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: #9fb6d8;
     }
 
-    /* Ligne fine de séparation */
     .divider {
       height: 1px;
       margin: 18px 0 16px;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(159, 182, 216, 0.7),
-        transparent
-      );
+      background: linear-gradient(90deg, transparent, rgba(159, 182, 216, 0.7), transparent);
     }
 
-    /* Infos contact */
     .info-block {
       display: flex;
       flex-direction: column;
@@ -173,11 +154,6 @@
       text-decoration: underline;
     }
 
-    .info-main {
-      font-weight: 500;
-    }
-
-    /* Boutons */
     .buttons {
       display: flex;
       flex-direction: column;
@@ -191,24 +167,22 @@
       border-radius: 999px;
       border: 1px solid rgba(188, 216, 255, 0.35);
       text-align: center;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       text-decoration: none;
       color: #f4f6fb;
       display: inline-flex;
       justify-content: center;
       align-items: center;
       gap: 8px;
-      transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+      transition: 0.16s ease;
       background: linear-gradient(120deg, rgba(11, 18, 32, 0.95), rgba(9, 26, 48, 0.98));
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 500;
     }
 
     .btn.primary {
       border-color: rgba(0, 153, 255, 0.65);
-      background: linear-gradient(135deg, #0b4477, #1678c9);
-      color: #f4f6fb;
+      background: linear-gradient(135deg, #0099ff, #4ab3ff);
+      color: #04101c;
       font-weight: 600;
       box-shadow:
         0 8px 20px rgba(0, 153, 255, 0.55),
@@ -217,19 +191,6 @@
 
     .btn:hover {
       transform: translateY(-1px);
-      box-shadow:
-        0 10px 24px rgba(0, 0, 0, 0.7),
-        0 0 18px rgba(255, 255, 255, 0.16);
-    }
-
-    .btn.primary:hover {
-      box-shadow:
-        0 10px 26px rgba(0, 153, 255, 0.7),
-        0 0 22px rgba(0, 153, 255, 0.6);
-    }
-
-    .btn-icon {
-      font-size: 1.05rem;
     }
 
     .footer {
@@ -237,25 +198,6 @@
       font-size: 0.72rem;
       color: #6f7a8f;
       text-align: right;
-    }
-
-    @media (max-width: 480px) {
-      .outer-frame {
-        padding: 10px;
-        border-radius: 22px;
-      }
-
-      .card {
-        padding: 24px 18px 20px;
-      }
-
-      .header {
-        gap: 14px;
-      }
-
-      .title {
-        font-size: 1.3rem;
-      }
     }
   </style>
 </head>
@@ -271,11 +213,14 @@
 
       <div class="header">
         <div class="logo-box">
-          <img src="high-res-ss nom.GIF" alt="Logo Marine CRIADO">
+          <img src="high-res-ss nom.GIF" alt="Logo MCSR">
         </div>
         <div class="title-block">
+
+          <!-- ✔️ TU VOULAIS EXACTEMENT CECI -->
           <div class="title">Marine CRIADO</div>
-          <div class="subtitle">Conseil en Énergie Sécurité & Environnement</div>
+
+          <div class="subtitle">ÉNERGIE · SÉCURITÉ · ENVIRONNEMENT</div>
         </div>
       </div>
 
@@ -292,22 +237,9 @@
       </div>
 
       <div class="buttons">
-        <a class="btn primary" href="tel:+33667025367">
-          <span class="btn-icon">📞</span>
-          <span>Appeler</span>
-        </a>
-        <a class="btn" href="mailto:marine.criado@mcsr.fr">
-          <span class="btn-icon">✉️</span>
-          <span>Envoyer un email</span>
-        </a>
-        <a
-          class="btn"
-          href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AFN%3AMarine%20CRIADO%0AN%3ACRIADO%3BMarine%3B%3B%3B%0ATEL%3BTYPE%3DCELL%3A%2B33667025367%0AEMAIL%3Amarine.criado%40mcsr.fr%0ATITLE%3AConseil%20en%20%C3%89nergie%2C%20S%C3%A9curit%C3%A9%20%26%20Environnement%0AEND%3AVCARD%0A"
-          download="Marine_CRIADO.vcf"
-        >
-          <span class="btn-icon">➕</span>
-          <span>Ajouter le contact</span>
-        </a>
+        <a class="btn primary" href="tel:+33667025367">📞 Appeler</a>
+        <a class="btn" href="mailto:marine.criado@mcsr.fr">✉️ Envoyer un email</a>
+        <a class="btn" href="#">➕ Ajouter contact</a>
       </div>
 
       <div class="footer">
