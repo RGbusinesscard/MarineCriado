@@ -1,281 +1,271 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Marine CRIADO – Conseil en Énergie Sécurité & Environnement</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <style>
+  <meta charset="UTF-8" />
+  <title>Marine CRIADO – Conseil en Énergie Sécurité & Environnement</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    }
 
-    /* ======== FULLSCREEN iPHONE FIX ======== */
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: #000;
-      width: 100%;
-      height: 100%;
-    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: #000;
+    }
 
-    body {
-      min-height: 100svh; /* plein écran réel iPhone */
-      background: radial-gradient(circle at top, #151a22 0, #05070b 55%, #020308 100%);
-      background-attachment: fixed;
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      color: #f4f6fb;
-      overflow-x: hidden;
-    }
+    body {
+      min-height: 100svh;
+      background: radial-gradient(circle at top, #151a22 0, #05070b 55%, #020308 100%);
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      color: #f4f6fb;
+      overflow-x: hidden;
+    }
 
-    /* ======== CADRE EXTÉRIEUR ======== */
-    .outer-frame {
-      width: 100%;
-      max-width: 440px;
-      padding: 14px;
-      border-radius: 26px;
-      border: 1px solid rgba(228, 204, 149, 0.25);
-      background: radial-gradient(circle at top, #121720 0, #05070b 70%);
-      box-shadow:
-        0 30px 60px rgba(0, 0, 0, 0.8),
-        0 0 0 1px rgba(255, 255, 255, 0.02);
-    }
+    .outer-frame {
+      width: 100%;
+      max-width: 440px;
+      padding: 14px;
+      border-radius: 26px;
+      border: 1px solid rgba(228, 204, 149, 0.25);
+      background: radial-gradient(circle at top, #121720 0, #05070b 70%);
+      box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.8),
+        0 0 0 1px rgba(255, 255, 255, 0.02);
+    }
 
-    /* ======== CARTE INTERNE ======== */
-    .card {
-      position: relative;
-      padding: 30px 26px 26px;
-      border-radius: 20px;
-      background: linear-gradient(140deg, rgba(9, 13, 22, 0.96), rgba(10, 19, 33, 0.98));
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      overflow: hidden;
-    }
+    .card {
+      position: relative;
+      padding: 30px 26px 26px;
+      border-radius: 20px;
+      background: linear-gradient(140deg, rgba(9, 13, 22, 0.96), rgba(10, 19, 33, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+    }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: -80px;
-      background:
-        radial-gradient(circle at 10% 0, rgba(0, 136, 204, 0.32), transparent 55%),
-        radial-gradient(circle at 90% 100%, rgba(235, 200, 140, 0.25), transparent 60%);
-      opacity: 0.9;
-      z-index: -1;
-    }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -80px;
+      background:
+        radial-gradient(circle at 10% 0, rgba(0, 136, 204, 0.32), transparent 55%),
+        radial-gradient(circle at 90% 100%, rgba(235, 200, 140, 0.25), transparent 60%);
+      opacity: 0.9;
+      z-index: -1;
+    }
 
-    /* ======== TAG ======== */
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(228, 204, 149, 0.5);
-      color: #e4cc95;
-      font-size: 0.7rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(228, 204, 149, 0.5);
+      color: #e4cc95;
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
 
-    .tag-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #e4cc95;
-    }
+    .tag-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #e4cc95;
+    }
 
-    /* ======== HEADER ======== */
-    .header {
-      display: flex;
-      gap: 18px;
-      align-items: center;
-      margin-bottom: 22px;
-    }
+    .header {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 22px;
+    }
 
-    .logo-box {
-      flex-shrink: 0;
-      width: 80px;
-      height: 80px;
-      border-radius: 18px;
-      overflow: hidden;
-      background: #05070b;
-      box-shadow:
-        0 10px 24px rgba(0, 0, 0, 0.8),
-        0 0 18px rgba(0, 136, 204, 0.35);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
+    .logo-box {
+      flex-shrink: 0;
+      width: 80px;
+      height: 80px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #05070b;
+      box-shadow:
+        0 10px 24px rgba(0, 0, 0, 0.8),
+        0 0 18px rgba(0, 136, 204, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
 
-    .logo-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .logo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-    .title-block {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
+    .title-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
 
-    .title {
-      font-size: 1.55rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      color: #f7f7ff;
-      text-transform: none; /* Marine reste normal */
-    }
+    .title {
+      font-size: 1.55rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: #f7f7ff;
+      text-transform: none;
+    }
 
-    .subtitle {
-      font-size: 0.86rem;
-      letter-spacing: 0.12em;
-      color: #9fb6d8;
-      text-transform: uppercase;
-    }
+    .subtitle {
+      font-size: 0.86rem;
+      letter-spacing: 0.12em;
+      color: #9fb6d8;
+      text-transform: uppercase;
+    }
 
-    .divider {
-      height: 1px;
-      margin: 18px 0 16px;
-      background: linear-gradient(90deg, transparent, rgba(159, 182, 216, 0.7), transparent);
-    }
+    .divider {
+      height: 1px;
+      margin: 18px 0 16px;
+      background: linear-gradient(90deg, transparent, rgba(159, 182, 216, 0.7), transparent);
+    }
 
-    /* ======== CONTACT ======== */
-    .info-block {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 18px;
-      font-size: 0.95rem;
-    }
+    .info-block {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 18px;
+      font-size: 0.95rem;
+    }
 
-    .info-label {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #7e8ba4;
-    }
+    .info-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #7e8ba4;
+    }
 
-    .info-main a {
-      color: #bcd8ff;
-      text-decoration: none;
-    }
+    .info-main a {
+      color: #bcd8ff;
+      text-decoration: none;
+    }
 
-    .info-main a:hover {
-      text-decoration: underline;
-    }
+    .info-main a:hover {
+      text-decoration: underline;
+    }
 
-    /* ======== BOUTONS ======== */
-    .buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 10px;
-    }
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
 
-    .btn {
-      padding: 11px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(188, 216, 255, 0.35);
-      text-align: center;
-      font-size: 0.95rem;
-      text-decoration: none;
-      color: #f4f6fb;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      transition: 0.16s ease;
-      background: linear-gradient(120deg, rgba(11, 18, 32, 0.95), rgba(9, 26, 48, 0.98));
-      text-transform: uppercase;
-    }
+    .btn {
+      padding: 11px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(188, 216, 255, 0.35);
+      text-align: center;
+      font-size: 0.95rem;
+      text-decoration: none;
+      color: #f4f6fb;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      transition: 0.16s ease;
+      background: linear-gradient(120deg, rgba(11, 18, 32, 0.95), rgba(9, 26, 48, 0.98));
+      text-transform: uppercase;
+    }
 
-    .btn.primary {
-      border-color: rgba(0, 153, 255, 0.65);
-      background: linear-gradient(135deg, #0099ff, #4ab3ff);
-      color: #04101c;
-      font-weight: 600;
-      box-shadow:
-        0 8px 20px rgba(0, 153, 255, 0.55),
-        0 0 18px rgba(0, 153, 255, 0.45);
-    }
+    .btn.primary {
+      border-color: rgba(0, 153, 255, 0.65);
+      background: linear-gradient(135deg, #0099ff, #4ab3ff);
+      color: #04101c;
+      font-weight: 600;
+      box-shadow:
+        0 8px 20px rgba(0, 153, 255, 0.55),
+        0 0 18px rgba(0, 153, 255, 0.45);
+    }
 
-    .btn:hover {
-      transform: translateY(-1px);
-    }
+    .btn:hover {
+      transform: translateY(-1px);
+    }
 
-    .footer {
-      margin-top: 22px;
-      font-size: 0.72rem;
-      color: #6f7a8f;
-      text-align: right;
-    }
+    .footer {
+      margin-top: 22px;
+      font-size: 0.72rem;
+      color: #6f7a8f;
+      text-align: right;
+    }
 
-  </style>
+  </style>
 </head>
 
 <body>
 
-  <div class="outer-frame">
-    <div class="card">
+  <div class="outer-frame">
+    <div class="card">
 
-      <div class="tag">
-        <span class="tag-dot"></span>
-        <span>Conseil & Ingénierie</span>
-      </div>
+      <div class="tag">
+        <span class="tag-dot"></span>
+        <span>Conseil & Ingénierie</span>
+      </div>
 
-      <div class="header">
-        <div class="logo-box">
-          <img src="high-res-ss nom.GIF" alt="Logo MCSR">
-        </div>
+      <div class="header">
+        <div class="logo-box">
+          <img src="high-res-ss nom.GIF" alt="Logo MCSR">
+        </div>
 
-        <div class="title-block">
-          <div class="title">Marine CRIADO</div>
-          <div class="subtitle">CONSEIL EN ÉNERGIE SÉCURITÉ & ENVIRONNEMENT</div>
-        </div>
-      </div>
+        <div class="title-block">
+          <div class="title">Marine CRIADO</div>
+          <div class="subtitle">CONSEIL EN ÉNERGIE SÉCURITÉ & ENVIRONNEMENT</div>
+        </div>
+      </div>
 
-      <div class="divider"></div>
+      <div class="divider"></div>
 
-      <div class="info-block">
-        <div class="info-label">Contact</div>
+      <div class="info-block">
+        <div class="info-label">Contact</div>
 
-        <div class="info-main">
-          <a href="mailto:marine.criado@mcsr.fr">marine.criado@mcsr.fr</a>
-        </div>
+        <div class="info-main">
+          <a href="mailto:marine.criado@mcsr.fr">marine.criado@mcsr.fr</a>
+        </div>
 
-        <div class="info-main">
-          <a href="tel:+33667025367">06 67 02 53 67</a>
-        </div>
-      </div>
+        <div class="info-main">
+          <a href="tel:+33667025367">06 67 02 53 67</a>
+        </div>
+      </div>
 
-      <div class="buttons">
+      <div class="buttons">
+        <a class="btn primary" href="tel:+33667025367">📞 APPELER</a>
 
-        <a class="btn primary" href="tel:+33667025367">📞 APPELER</a>
+        <a class="btn" href="mailto:marine.criado@mcsr.fr">✉️ ENVOYER UN EMAIL</a>
 
-        <a class="btn" href="mailto:marine.criado@mcsr.fr">✉️ ENVOYER UN EMAIL</a>
+        <!-- vCard en base64 : bouton AJOUTER CONTACT -->
+        <a
+          class="btn"
+          href="data:text/vcard;base64,QkVHSU46VkNBUkQKVkVSU0lPTjozLjAKTjpDUklBRE87TWFyaW5lOzs7CkZOOk1hcmluZSBDUklBRE8KT1JHOk1DU1IKVElUTEU6Q29uc2VpbCBlbiDDiW5lcmdpZSBTw6ljdXJpdMOpICYgRW52aXJvbm5lbWVudApFTUFJTDptYXJpbmUuY3JpYWRvQG1jc3IuZnIKVEVMOiszMzY2NzAyNTM2NwpFTkQ6VkNBUkQK"
+          download="Marine-Criado.vcf"
+        >
+          ➕ AJOUTER CONTACT
+        </a>
+      </div>
 
-        <!-- AJOUTER CONTACT FONCTIONNEL -->
-        <a class="btn" href="data:text/vcard;charset=utf-8,
-BEGIN:VCARD%0A
-VERSION:3.0%0A
-N:CRIADO;Marine;;;%0A
-FN:Marine%20CRIADO%0A
-ORG:MCSR%0A
-TITLE:Conseil%20en%20Énergie%20Sécurité%20&%20Environnement%0A
-EMAIL:marine.criado@mcsr.fr%0A
-TEL:+33667025367%0A
-END:VCARD" download="Marine-Criado.vcf">
-➕ AJOUTER CONTACT
-        </a>
+      <div class="footer">
+        Propulsé par RG.card — Mini-site NFC
+      </div>
 
-      </div>
-
-      <div class="footer">
-        Propulsé par RG.card — Mini-site NFC
-      </div>
-
-    </div>
-  </div>
+    </div>
+  </div>
 
 </body>
 </html>
