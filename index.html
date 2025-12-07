@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Marine CRIADO – MCSR</title>
+  <title>Marine CRIADO – Conseil en Énergie Sécurité & Environnement</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     * {
@@ -29,9 +29,7 @@
       border-radius: 26px;
       border: 1px solid rgba(228, 204, 149, 0.25);
       background: radial-gradient(circle at top, #121720 0, #05070b 70%);
-      box-shadow:
-        0 30px 60px rgba(0, 0, 0, 0.8),
-        0 0 0 1px rgba(255, 255, 255, 0.02);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
     }
 
     .card {
@@ -99,7 +97,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
     }
 
     .title-block {
@@ -108,20 +105,19 @@
       gap: 4px;
     }
 
-    /* ✔️ TA MODIFICATION : Marine CRIADO */
     .title {
       font-size: 1.55rem;
       font-weight: 600;
       letter-spacing: 0.14em;
-      text-transform: uppercase;
       color: #f7f7ff;
+      text-transform: none;
     }
 
     .subtitle {
       font-size: 0.86rem;
       letter-spacing: 0.12em;
-      text-transform: uppercase;
       color: #9fb6d8;
+      text-transform: uppercase;
     }
 
     .divider {
@@ -162,7 +158,6 @@
     }
 
     .btn {
-      position: relative;
       padding: 11px 14px;
       border-radius: 999px;
       border: 1px solid rgba(188, 216, 255, 0.35);
@@ -201,6 +196,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <div class="outer-frame">
@@ -215,12 +211,10 @@
         <div class="logo-box">
           <img src="high-res-ss nom.GIF" alt="Logo MCSR">
         </div>
+
         <div class="title-block">
-
-          <!-- ✔️ TU VOULAIS EXACTEMENT CECI -->
           <div class="title">Marine CRIADO</div>
-
-          <div class="subtitle">ÉNERGIE · SÉCURITÉ · ENVIRONNEMENT</div>
+          <div class="subtitle">CONSEIL EN ÉNERGIE SÉCURITÉ & ENVIRONNEMENT</div>
         </div>
       </div>
 
@@ -228,18 +222,36 @@
 
       <div class="info-block">
         <div class="info-label">Contact</div>
+
         <div class="info-main">
           <a href="mailto:marine.criado@mcsr.fr">marine.criado@mcsr.fr</a>
         </div>
+
         <div class="info-main">
           <a href="tel:+33667025367">06 67 02 53 67</a>
         </div>
       </div>
 
       <div class="buttons">
-        <a class="btn primary" href="tel:+33667025367">📞 Appeler</a>
-        <a class="btn" href="mailto:marine.criado@mcsr.fr">✉️ Envoyer un email</a>
-        <a class="btn" href="#">➕ Ajouter contact</a>
+
+        <a class="btn primary" href="tel:+33667025367">📞 APPELER</a>
+
+        <a class="btn" href="mailto:marine.criado@mcsr.fr">✉️ ENVOYER UN EMAIL</a>
+
+        <!-- ✔️ BOUTON AJOUTER CONTACT FONCTIONNEL -->
+        <a class="btn" href="data:text/vcard;charset=utf-8,
+BEGIN:VCARD%0A
+VERSION:3.0%0A
+N:CRIADO;Marine;;;%0A
+FN:Marine%20CRIADO%0A
+ORG:MCSR%0A
+TITLE:Conseil%20en%20Énergie%20Sécurité%20&%20Environnement%0A
+EMAIL:marine.criado@mcsr.fr%0A
+TEL:+33667025367%0A
+END:VCARD" download="Marine-Criado.vcf">
+➕ AJOUTER CONTACT
+        </a>
+
       </div>
 
       <div class="footer">
